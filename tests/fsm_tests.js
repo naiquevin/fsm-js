@@ -1,12 +1,12 @@
 module("Airplane fsm");
 
 test('airplane fsm tests', function () {
-    
+
     var airplane = AirplaneFSM.start(['JetAirways', 'Mumbai', 'Bangalore']);
     deepEqual(airplane._state, {seatbelt: 'off', doors: 'closed'});
     equal(airplane._stateName, 'onland');
 
-    var reply = airplane.send('boarding', 1234);    
+    var reply = airplane.send('boarding', 1234);
     equal(reply, 'good morning');
     equal(airplane._stateName, 'onland');
     deepEqual(airplane._state, {seatbelt: 'off', doors: 'open'});
@@ -26,7 +26,7 @@ test('airplane fsm tests', function () {
     var reply = airplane.send('turbulence', '$#$@$');
     equal(reply, 'butterflies in stomach');
     equal(airplane._stateName, 'inair');
-    deepEqual(airplane._state, {seatbelt: 'on', doors: 'closed'});    
+    deepEqual(airplane._state, {seatbelt: 'on', doors: 'closed'});
 
     airplane.send('cruising', 'height 2034');
     equal(airplane._stateName, 'inair');

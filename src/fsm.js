@@ -19,7 +19,7 @@ var fsm = function (callbacks) {
             throw new Error('Callback "' + name + '" not found');
         }
         return fn;
-    };    
+    };
 
     return {
         start: function (initArgs) {
@@ -61,4 +61,3 @@ var fsm = function (callbacks) {
         }
     };
 };
-
